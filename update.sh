@@ -1,19 +1,24 @@
-tag=6.1.0
+#!/bin/bash
 
-# Download
-./download-specific-version.sh \
-	-l https://github.com/hyperoslo/Whisper.git \
-	-t $tag
+wget "https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz" -O archive.tar.xz
+tar -xf archive.tar.xz
 
-# Configure `Sources` folder
-cd Sources
-mv SupportFiles/Info.plist Source
-mv .gitignore Source
-mv Source ..
-cd ..
-rm -rf Sources
-mv Source Sources
+# link="https://github.com/videolan/vlckit.git"
+#
+# git clone $link Sources
+#
+# # Configure `Sources` folder
+#
+# mv Sources/Packaging/MobileVLCKit.json .
+# rm -rf Sources
+# link=$(jq -r --arg tag "3.6.0" '.["3.6.0"]' MobileVLCKit.json)
+# rm MobileVLCKit.json
+# wget $link -O archive.tar.xz
+# tar -xf archive.tar.xz
+# rm archive.tar.xz
+# mv MobileVLCKit-binary/MobileVLCKit.xcframework .
+# rm -rf MobileVLCKit-binary
 
 # Git stuff
-git commit -m "Update to $tag version"
-git tag $tag HEAD
+# git commit -m "Update to $tag version"
+# git tag $tag HEAD
