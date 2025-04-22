@@ -23,9 +23,6 @@ xcodebuild -create-xcframework \
     -debug-symbols "${PWD}/$IOS_LOCATION/ios-arm64_armv7_armv7s/dSYMs/MobileVLCKit.framework.dSYM" \
     -output build/MobileVLCKit.xcframework
     
-ditto -c -k --sequesterRsrc --keepParent "build/MobileVLCKit.xcframework" "build/MobileVLCKit.xcframework.zip"
-
-# cp -f build/MobileVLCKit-binary/COPYING.txt ./LICENSE
 mv build/MobileVLCKit.xcframework Sources
 rm -rf build/
 zip -r MobileVLCKit.zip Sources/MobileVLCKit.xcframework/
